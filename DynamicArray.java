@@ -37,7 +37,7 @@ public class DynamicArray {
      */
     private void resize() {
         // Create temporary array of DOUBLE the size of the underlying array
-        String[] temp = new String[2 * this.underlying.length];
+        String[] temp = new String[this.underlying.length * RESIZE_FACTOR]; //removed and RESIZE_FACTOR used
         for (int i = 0; i < this.underlying.length; i++) {
             temp[i] = this.underlying[i];
         }
@@ -63,33 +63,65 @@ public class DynamicArray {
      *         first occurrence of string.
      */
     public int indexOf(String string) {
-        return -1234;
+        for (int i = 0; i < this.occupancy; i++) { //  loop through used elements of the array
+            if (this.underlying[i] != null && this.underlying[i].equals(string)) { // check for match using .equals()
+                return i; //  return index if found
+            }
+        }
+        return -1; //  return -1 if not found
     } // method indexOf
 
     /** Method to tell if a string exists in the underlying array */
     public boolean contains(String string) {
-        return false;
+        return this.indexOf(string) != -1; // reuse indexOf method to check presence
     }
 
     /** Method to count how many times a string appears in the underlying array*/
     public int countOf(String string) {
-        return -1234;
+        int count = 0; // keeps track of how many matches found
+        for (int i = 0; i < this.occupancy; i++) { // loop through all valid items
+            if (this.underlying[i] != null && this.underlying[i].equals(string)) { // check for match
+                count++; // increment count when match found
+            }
+        }
+        return count; // return the final count
     }
 
     /** method to remove items from the underlying array */
     public String remove(int index) {
-        return "James on the street talking trash about your hotel";
+        if (index < 0 || index >= this.occupancy) { // bounds check for valid index
+            return null; // invalid index returns null
+        }
+        String removed = this.underlying[index]; // save the item being removed
+        for (int i = index; i < this.occupancy - 1; i++) { // shift items left from index onward
+            this.underlying[i] = this.underlying[i + 1]; // move next item back by one
+        }
+        this.underlying[this.occupancy - 1] = null; //clear the now-unused last slot
+        this.occupancy--; // decrease count since one item was removed
+        return removed; // return removed value
     }
 
     /** overload remove */ 
     public String remove(String string) {
-        return "James on the street talking trash about your hotel";
+        int index = this.indexOf(string); // find the index of the string
+        if (index == -1) { // ADDED: if not found
+            return null; // ADDED
+        }
+        return this.remove(index); // ADDED: delegate to index-based remove
     }
 
-    /** Complete this method */
+    /** Return a string representation of the array */
     public String toString() {
-        return "to be done shortly"; // blatant violation of magic values clause
-                                     // serves as reminder to finish this method
+        StringBuilder sb = new StringBuilder(); // StringBuilder to build output
+        sb.append("["); // opening bracket
+        for (int i = 0; i < this.occupancy; i++) { // loop through valid elements
+            sb.append(this.underlying[i]); //
+            if (i < this.occupancy - 1) {
+                sb.append(", "); // add comma between elements
+            }
+        }
+        sb.append("]"); // closing bracket
+        return sb.toString(); // return built string
     }
 
 } // class DynamicArray

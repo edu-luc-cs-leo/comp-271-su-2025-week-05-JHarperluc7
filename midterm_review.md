@@ -1,0 +1,8 @@
+Reflecting on the first five weeks of assignments, I can see clear growth, even through the mistakes. Early on, I forgot to synchronize my CodeSpaces once, which caused an assignment issue. Since then, I’ve stayed on top of syncing and submitting correctly. I’ve also become more mindful of details like access modifiers, comments, and repeated logic. My initial code was overly verbose and lacked the conciseness of a production-level implementation. While I prioritized writing many comments to clarify my thought process, I’ve come to realize that purposeful, well-placed comments—and clean logic—are more effective. Moving forward, I’ll focus more on refining structure and formatting, reducing redundancy, and following best practices like adhering more strictly to the Programmer Pact.
+
+Engagement-wise, I treat this course seriously. I arrive on time to class and typically join a few minutes early. I’ve only missed class when absolutely necessary and always communicated those absences. Juggling this course with an internship has been a challenge, and I’ve had to actively work on being more present during class sessions. I’ve also dealt with technical issues (like my camera disconnecting), which have sometimes made participation harder. Still, I try to engage by responding and occasionally contributing without prompting. I’d like to improve by asking more questions proactively.
+
+Overall, I feel I’m growing—becoming a more thoughtful, consistent coder and student. I’ve learned to value reflection, communication, and persistence. Mistakes have taught me not just how to correct my code, but how to better manage my time and mindset.
+
+— Julia
+
